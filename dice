@@ -1,0 +1,12 @@
+d := Die new.
+d roll between: 1 and: 6.
+rolls := (1 to 20)collect:[:i|d roll].
+rolls allSatisfy: [ :i | i between: 1 and: 6 ].
+
+d := Die withFaces: 20. 
+d roll between: 1 and: 20.
+rolls := (1 to : 20000) collect :[ :i |d roll].
+rolls allSatisfy: [ :i|i between : 1 and : (d faces) ].
+
+frq := rolls as Bag.
+frq valuesAndCounts .
